@@ -32,7 +32,7 @@ exports.validateUserModel = [
     .withMessage(`Please Enter An Email`)
     .trim()
     .isEmail()
-    .withMessage(`Please Enter A Valid Email`),
+    .withMessage(`Please Enter Valid Email`),
 
   check(`password`)
     .trim()
@@ -45,7 +45,31 @@ exports.validateUserModel = [
     .matches(`[a-z]`)
     .withMessage(`One Lowercase Letter Required`)
     .matches(`[0-9]`)
-    .withMessage(`One number is required`)
+    .withMessage(`One Number Required`)
+    .matches(/[-._!``"'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/)
+    .withMessage(`One Special Character Required`),
+];
+
+module.loginValidation = [
+  check(`email`)
+    .notEmpty()
+    .withMessage(`Please Enter An Email`)
+    .trim()
+    .isEmail()
+    .withMessage(`Please Enter Valid Email`),
+
+  check(`password`)
+    .trim()
+    .notEmpty()
+    .withMessage(`Please Enter Password`)
+    .isLength({ min: 8, max: 20 })
+    .withMessage(`Password Must Be 8 To 20 Characters`)
+    .matches(`[A-Z]`)
+    .withMessage(`One Uppercase Letter Required`)
+    .matches(`[a-z]`)
+    .withMessage(`One Lowercase Letter Required`)
+    .matches(`[0-9]`)
+    .withMessage(`One Number Required`)
     .matches(/[-._!``"'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/)
     .withMessage(`One Special Character Required`),
 ];

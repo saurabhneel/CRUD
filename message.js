@@ -17,4 +17,6 @@ module.exports = {
   userNotExist: `User Is Not Exist`,
   enterCorrectPassword: `Please Enter Correct Password`,
   loginSuccessfull: `Login Successfull`,
+  tokenNotAvailble: `Token Not Available`,
+  tokenInvaild: `Token Invalid`,
 };

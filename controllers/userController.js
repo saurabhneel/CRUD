@@ -73,10 +73,9 @@ exports.login = async (req, res) => {
 
     const tokenPayload = {
       roleID: user.roleID,
-      expiresIn: `4h`,
     };
 
-    const token = await jwt.sign(tokenPayload, jwtSecretKey);
+    const token = jwt.sign(tokenPayload, jwtSecretKey, { expiresIn: `5m` });
 
     const data = {
       email: user.email,
